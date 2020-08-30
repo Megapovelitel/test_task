@@ -35,15 +35,17 @@ function Form() {
   useEffect(() => {
     if (!isLoaded.current) {
       isLoaded.current = true;
-    }else setErrors(validate(formData));
+    }
+    else setErrors(validate(formData));
   }, [formData]);
 
   const onSubmit = (e) => {
     e.preventDefault();
+    setErrors(validate(formData));
     if (
       errors.password === "" &&
       errors.repeatPassword === "" &&
-      errors.email === ""
+      errors.email === "" && errors.touched === true
     ) {
       setDate(reformDate());
       console.log(JSON.stringify(formData));

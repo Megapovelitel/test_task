@@ -16,7 +16,7 @@ function FormElements({
         <div className="form-group">
           <h1>Здравствуйте, </h1>
           <div>
-            <div style={{display: 'flex'}}>
+            <div style={{display: "flex"}}>
             <h1 style={{ color: "#666666" }}>Username №111</h1>
             <button className='btn2' onClick={handleStatus}>
               Изменить статус
@@ -50,14 +50,13 @@ function FormElements({
           <label className="main-label">Пароль</label>
           <div>
           <input
-            required
             value={formData.password || ""}
             onChange={(e) => handleChange(e)}
             name="password"
             type="password"
-            className={errors.password !== '' ? "input-control danger" : "input-control"}
+            className={errors.password !== "" ? "input-control danger" : "input-control"}
           />
-          <span className='error-msg'>{errors.password}</span></div>
+          <span className="error-msg">{errors.password}</span></div>
           <label className="right-label">
             Ваш новый пароль должен содержать не менее 5 символов.
           </label>
@@ -68,14 +67,14 @@ function FormElements({
           <label className="main-label">Пароль ещё раз</label>
           <div>
           <input
-            required
+            disabled={formData.password === "" ? true : false }
             value={formData.repeatPassword || ""}
             onChange={(e) => handleChange(e)}
             name="repeatPassword"
             type="password"
-            className={errors.repeatPassword !== '' ? "input-control danger" : "input-control"}
+            className={errors.repeatPassword !== "" ? "input-control danger" : "input-control"}
           />
-          <span className='error-msg'>{errors.repeatPassword}</span></div>
+          <span className="error-msg">{errors.repeatPassword}</span></div>
           <label className="right-label">
             Повторите пароль, пожалуйста, это обезопасит вас с нами на случай
             ошибки.
@@ -89,10 +88,9 @@ function FormElements({
             value={formData.email || ""}
             onChange={(e) => handleChange(e)}
             name="email"
-            required
-            className={errors.email !== '' ? "input-control danger" : "input-control"}
+            className={errors.email !== "" ? "input-control danger" : "input-control"}
           />
-          <span className='error-msg'>{errors.email}</span></div>
+          <span className="error-msg">{errors.email}</span></div>
           <label className="right-label">
             Можно изменить адрес, указанный при регистрации.
           </label>
@@ -101,8 +99,8 @@ function FormElements({
         <div className="form-group">
           <label className="main-label">Я согласен</label>
           <div>
-          <input name='newsAccepted' onClick={handleChange}className='checkbox' type="checkbox"></input>
-          <span className='checkbox-span'>принимать актуальную информацию на емейл.</span>
+          <input name="newsAccepted" onClick={handleChange}className="checkbox" type="checkbox"></input>
+          <span className="checkbox-span">принимать актуальную информацию на емейл.</span>
           </div>
         </div>
         <div className="form-group">

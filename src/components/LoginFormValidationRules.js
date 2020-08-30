@@ -1,8 +1,8 @@
 export default function validate(values) {
-  let errorsFun = {};
+  let errorsFun = {}
   if (!values.password) {
     errorsFun.password = "Укажите пароль";
-  } else if (values.password.length < 5) {
+  } else if (values.password.length < 5 ) {
     errorsFun.password = "Пароль должен быть не менее 5 символов";
   } else errorsFun.password = "";
   
@@ -17,6 +17,8 @@ export default function validate(values) {
   } else if (!values.repeatPassword) {
     errorsFun.repeatPassword = "Укажите пароль";
   } else errorsFun.repeatPassword = "";
+  
+  errorsFun.touched = true;
+  return errorsFun
 
-  return errorsFun;
 }
