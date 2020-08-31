@@ -4,6 +4,7 @@ import sortData from "./sortData";
 import data from "../data/cities.json";
 import reformDate from "./reformDate";
 import validate from "./LoginFormValidationRules";
+
 function Form() {
   const [cities] = useState(sortData(data));
   const isLoaded = useRef(false);
@@ -35,8 +36,9 @@ function Form() {
   useEffect(() => {
     if (!isLoaded.current) {
       isLoaded.current = true;
+    } else {
+      setErrors(validate(formData));
     }
-    else setErrors(validate(formData));
   }, [formData]);
 
   const onSubmit = (e) => {
@@ -45,7 +47,8 @@ function Form() {
     if (
       errors.password === "" &&
       errors.repeatPassword === "" &&
-      errors.email === "" && errors.touched === true
+      errors.email === "" &&
+      errors.touched === true
     ) {
       setDate(reformDate());
       console.log(JSON.stringify(formData));
